@@ -1,28 +1,46 @@
-# Show me the code
+# Santander
+Teste Santander Fev/2019
 
-### # DESAFIO:
+Projeto de testes para Santander Android utilizando `Appium`, `Cucumber`, `Capybara` e `Ruby`.
 
-Utilizando o App Cálculo Preço e Prazos Correios (https://play.google.com/store/apps/details?id=br.com.correios.calculaprecoprazo), crie testes automatizado para um dos dois fluxo (Novo Cálculo ou Cálculo Internacional) este fluxo deve ir até salvar o cálculo e consultar se o cálculo foi salvo, deve conter ao menos dois casos de sucesso e três casos de execeção (ex. validação de campos).
 
-Tambem é necessario responder ao arquivo "Prova" que esta no repo.
+# Instalação das Gems
 
-### # Avaliação
+Acessar via terminal a pasta do projeto `/automation-android`
 
-Você será avaliado pela usabilidade, por respeitar o design e pela arquitetura dos testes. É esperado que você consiga explicar as decisões que tomou durante o desenvolvimento através de commits.
+Excutar o comando: 
 
-* Ruby (gems a gosto)
-* BDD, boa organização dos steps é um diferencial (ferramenta para utilizar o gherkin a seu criterio)
-* Appium (ou qualquer outra, desde que justificado seu uso)
-* Page Objects é um padrão obrigatório
-* Uso do git
+```
+bundle install
+```
 
-### # Observações gerais
 
-Adicione um arquivo [README.md](http://README.md) com os procedimentos para executar o projeto.
-Pedimos que trabalhe sozinho e não divulgue o resultado na internet.
+# Configuração do arquivo appium.txt
 
-Faça um fork desse desse repositório em seu Github e nos envie um Pull Request com o resultado, por favor informe por qual empresa você esta se candidatando.
+Altere o parametro `app` para o caminho completo do app, como em `/Users/felipefogal/workspace/Tests/Santander_TesteQA_FelipeFogal/TesteQA/calculaprecoprazo.apk`.
 
-### # Importante: não há prazo de entrega, faça com qualidade!
 
-# BOA SORTE!
+# Execução dos Testes
+
+1. Iniciar o Appium
+2. Abrir emulador do Android (ex: Gennymotion, Android AVD..)
+3. Abrir o terminal na pasta do projeto /automation-android
+4. Executar o comando:
+
+```
+bundle exec cucumber
+```
+
+# Reports
+
+Os relatórios são criados automaticamente na pasta `/reports`
+
+
+# Prova QA
+
+As anotações dos bugs estão descritas no próprio arquivo.
+
+
+# Commits do projeto
+
+Os `commits` deste projeto estão no repositório `https://github.com/felipefogal/Santander.git`
