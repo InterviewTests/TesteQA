@@ -1,0 +1,6 @@
+Pages\OrigemDestinoCorreioPage.class
+Pages\MenuCalculoInternacionalPage.class
+Core\CommonsBasePage.class
+Pages\DadosDoObjetoPage.class
+Core\DriverFactory.class
+Pages\ResultadoDoCalculoPage.class

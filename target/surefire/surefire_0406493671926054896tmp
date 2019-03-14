@@ -1,0 +1,6 @@
+#surefire_0
+#Wed Mar 13 21:59:40 BRT 2019
+cucumber.options=\ --tags @CalculoInternacional
+basedir=C\:\\Sand_Teste_Santander\\TesteQA
+user.dir=C\:\\Sand_Teste_Santander\\TesteQA
+localRepository=C\:\\Users\\nsilvsan\\.m2\\repository
