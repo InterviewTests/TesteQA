@@ -3,7 +3,7 @@ Test QA
 
 ## Getting Started
 
-Executar o arquivo TestQA_execution.bat
+Run the file TestQA_execution.bat
 
 Print in the target / screenshot folder
 
