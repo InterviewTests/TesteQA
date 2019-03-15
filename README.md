@@ -13,3 +13,6 @@ Maven (running in environment variables)
 Java 
 Android
 Client Appium 
+
+#### Company
+Everis Brasil
