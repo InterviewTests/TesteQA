@@ -10,9 +10,11 @@ import org.openqa.selenium.TakesScreenshot;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.concurrent.TimeUnit;
 
-public class Hooks {
+public class Hooks extends DriverFactory {
 
     @Before
     public void inicializaAppium() {
@@ -21,15 +23,19 @@ public class Hooks {
 
     @After(order = 0)
     public void turnOffDriver() {
-        DriverFactory.getDRIVER().manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        DriverFactory.getDRIVER().quit();
+        getDRIVER().manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        getDRIVER().resetApp();
+        getDRIVER().quit();
     }
 
     @After(order = 1)
-    public void gerarScreenShot(Scenario scenario) {
+    public void TakeScreenShot(Scenario scenario) {
+        getDRIVER().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        SimpleDateFormat formatDate = new SimpleDateFormat("dd-MM-yyyy-hh-mm-ss");
+        Calendar date = Calendar.getInstance();
         try {
-            File imagem = ((TakesScreenshot) DriverFactory.getDRIVER()).getScreenshotAs(OutputType.FILE);
-            FileUtils.copyFile(imagem, new File("target/screenshots/" + scenario.getId() + ".png"));
+            File imagem = ((TakesScreenshot) getDRIVER()).getScreenshotAs(OutputType.FILE);
+            FileUtils.copyFile(imagem, new File("target/screenshots/" + scenario.getName() + " " +formatDate.format(date.getTime()) +  ".png"));
         } catch (IOException e) {
             e.printStackTrace();
         }

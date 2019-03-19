@@ -9,7 +9,7 @@ Cenario: 		Criacao de calculo internacional valido de preco e prazo por CEP
                 E que informo um Pais Destinatario valido
                 E que informo uma cidade de destino valida
                 E que informo um Peso valido
-                Entao o calculo deve ser salvo com sucesso
+                Então o calculo deve ser salvo com sucesso
 
 
 @CalculoInternacionalValidoCidadeEstado
@@ -20,14 +20,14 @@ Cenario: 		Criacao de calculo internacional  valido de preco e prazo por Estado
                 E que informo um Pais Destinatario valido
                 E que informo uma cidade de destino valida
                 E que informo um Peso valido
-                Entao o calculo deve ser salvo com sucesso
+                Então o calculo deve ser salvo com sucesso
 
 
 @CalculoInternacionalCEPInvalido
 Cenario: 		Valida calculo internacional CEP invalido
                 Dado que estou validando o calculo de Preco e Prazo internacional
                 E que informo CEP Remente invalido
-                Entao o sistema deve apresentar mensagem de erro
+                Então o sistema deve apresentar mensagem de erro
 
 @CalculoInternacionalDadosObjeto
 Cenario:        Criar cadastro de Calculo Internacional com Dados Objeto
@@ -38,7 +38,7 @@ Cenario:        Criar cadastro de Calculo Internacional com Dados Objeto
                  E que informo o dado do Objeto Nao Documento
                  E que o tipo envelope
                  E que informo um Peso valido
-                Entao o calculo deve ser salvo com sucesso
+                Então o calculo deve ser salvo com sucesso
 
 @CalculoInternacionalValidaPeso
 Cenario:        Criar cadastro de Calculo Internacional valida o Peso
@@ -48,18 +48,18 @@ Cenario:        Criar cadastro de Calculo Internacional valida o Peso
                 E que informo uma cidade de destino valida
                 E que informo o dado do Objeto Nao Documento
                 E que o tipo envelope
-                Entao o sistema deve validar a falta do Peso
+                Então o sistema deve validar a falta do Peso
 
 @CalculoInternacionalValidaPaisInvalido
 Cenario:        Validar selecao de pais invalido Calculo Internacional
                 Dado que estou realizando o calculo de Preco e Prazo internacional
                 E que informo CEP Remente valido
                 E que informo um Pais Destinatario invalido
-                Entao o sistema deve realizar a verificacao e apresentar mensagem de erro
+                Então o sistema deve realizar a verificacao e apresentar mensagem de erro
 
 @CalculoInternacionalValidaDadosDestinoInvalido
 Cenario:        Validar dados invalidos de pais Destinatario
                 Dado que estou realizando o calculo de Preco e Prazo internacional
                 E que informo CEP Remente valido
-                E que informo Dado de Destinatario invalido
-                Entao o sistema deve realizar a verificacao e apresentar mensagem de erro informando sobre os dados invalidos
+                E que informo o Destinatario invalido
+                Então o sistema deve realizar a verificacao e apresentar mensagem de erro informando sobre os dados invalidos

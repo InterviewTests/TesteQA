@@ -2,6 +2,8 @@ package Core;
 
 import io.appium.java_client.MobileElement;
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -15,20 +17,25 @@ public class CommonsBasePage {
     }
 
     public String getTextField(By by) {
-        return getDRIVER().findElement(by).getText();
+        return getDRIVER().findElement(by).getText().trim();
     }
 
-    public void clickElement(By by) {
+    public static void clickElement(By by) {
         getDRIVER().findElement(by).click();
     }
 
-    public void clickForText(By by, String text) {
-        List<MobileElement> btnsMenu = getDRIVER().findElements(by);
-        for (MobileElement botaomenu : btnsMenu) {
-            if (text.equals(botaomenu.getText().trim())) {
-                botaomenu.click();
-                break;
+    public void clickMenuByText(String text) {
+        try {
+            clickElement(By.id("android:id/up"));
+            waitConditionElement(By.id("br.com.correios.calculaprecoprazo:id/textview_texto"), 10);
+            for (MobileElement botaomenu : getDRIVER().findElements(By.id("br.com.correios.calculaprecoprazo:id/textview_texto"))) {
+                if (text.equals(botaomenu.getText().trim())) {
+                    botaomenu.click();
+                    break;
+                }
             }
+        } catch (Exception e) {
+            System.out.println(e);
 
         }
     }
@@ -38,8 +45,12 @@ public class CommonsBasePage {
         return elementos.size() > 0;
     }
 
+    public void waitConditionElement(By by, int Time) {
+        WebDriverWait wait = new WebDriverWait(getDRIVER(), Time);
+        wait.until(ExpectedConditions.presenceOfElementLocated(by));
+    }
 
-    public static void esperar(long tempo) {
+    public void esperar(long tempo) {
         getDRIVER().manage().timeouts().implicitlyWait(tempo, TimeUnit.SECONDS);
 
     }

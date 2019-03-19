@@ -3,28 +3,26 @@ package Pages;
 import Core.CommonsBasePage;
 import org.openqa.selenium.By;
 
-public class DadosDoObjetoPage {
+public class DadosDoObjetoPage extends CommonsBasePage {
 
-    private static CommonsBasePage Commons = new CommonsBasePage();
-
-
-    public static void getTipoDocumentoObjeto() {
-        Commons.clickElement(By.xpath("//android.widget.RadioButton[contains(@text,'Não documento')]"));
+    public void getTipoDocumentoObjeto() {
+        waitConditionElement(By.xpath("//android.widget.RadioButton[contains(@text,'Não documento')]"),10);
+        clickElement(By.xpath("//android.widget.RadioButton[contains(@text,'Não documento')]"));
     }
 
-    public static void getTipoEnveloper() {
-        Commons.clickElement(By.id("br.com.correios.calculaprecoprazo:id/rbEnvelope"));
+    public void getTipoEnveloper() {
+        clickElement(By.id("br.com.correios.calculaprecoprazo:id/rbEnvelope"));
     }
 
-    public static void getPeso(String Peso) {
-        Commons.writefield(By.id("br.com.correios.calculaprecoprazo:id/txt_peso"), Peso);
+    public void getPeso(String Peso) {
+        writefield(By.id("br.com.correios.calculaprecoprazo:id/txt_peso"), Peso);
     }
 
-    public static void btnCalcular() {
-        Commons.clickElement(By.id("br.com.correios.calculaprecoprazo:id/button_calc"));
+    public void btnCalcular() {
+        clickElement(By.id("br.com.correios.calculaprecoprazo:id/button_calc"));
     }
 
-    public static String mensagemPesoInvalido() {
-        return Commons.getTextField(By.xpath("//android.widget.Toast[contains(@text,'Valor do peso inválido')]"));
+    public String mensagemPesoInvalido() {
+        return getTextField(By.xpath("//android.widget.Toast[contains(@text,'Valor do peso inválido')]"));
     }
 }

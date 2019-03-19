@@ -1,6 +1,5 @@
 package stepsDefinition;
 
-import Core.CommonsBasePage;
 import Pages.DadosDoObjetoPage;
 import Pages.MenuCalculoInternacionalPage;
 import Pages.OrigemDestinoCorreioPage;
@@ -30,9 +29,9 @@ public class CorreioCalculoInternacionalStep {
     }
 
     @Dado("^que informo CEP Remente invalido$")
-    public void que_informo_CEP_Remente_invalido() throws InterruptedException {
+    public void que_informo_CEP_Remente_invalido()  {
         origemDestinoCorreioPage.getCEPEstadoOrigemInvalido("00000000");
-        CommonsBasePage.esperar(5);
+        resultadoDoCalculoPage.esperar(5);
         origemDestinoCorreioPage.btnProximoPasso();
 
     }
@@ -44,25 +43,25 @@ public class CorreioCalculoInternacionalStep {
     }
 
     @Dado("^que informo uma cidade de destino valida$")
-    public void que_informo_uma_cidade_de_destino_valida() throws InterruptedException {
-        CommonsBasePage.esperar(10);
+    public void que_informo_uma_cidade_de_destino_valida() {
+        resultadoDoCalculoPage.esperar(10);
         origemDestinoCorreioPage.getCidadeDestinatario("LISBOA");
         origemDestinoCorreioPage.btnProximoPasso();
 
     }
 
     @Dado("^que informo um Peso valido$")
-    public void que_informo_um_Peso_valido() throws InterruptedException {
-        CommonsBasePage.esperar(5);
-        DadosDoObjetoPage.getPeso("5");
+    public void que_informo_um_Peso_valido() {
+        resultadoDoCalculoPage.esperar(5);
+        dadosDoObjetoPage.getPeso("5");
         dadosDoObjetoPage.btnCalcular();
     }
 
     @Entao("^o calculo deve ser salvo com sucesso$")
     public void o_calculo_deve_ser_salvo_com_sucesso() {
-        CommonsBasePage.esperar(5);
+        resultadoDoCalculoPage.esperar(5);
         resultadoDoCalculoPage.clickSalveCalculo();
-        CommonsBasePage.esperar(20);
+        resultadoDoCalculoPage.esperar(20);
         resultadoDoCalculoPage.getNomeCalculo("CALCULO AUTOMACAO");
         resultadoDoCalculoPage.clickOkCalculo();
 //        Assert.assertEquals("Cálculo salvo com sucesso.", ResultadoDoCalculoPage.getMensagemCalculoSalvo());
@@ -75,9 +74,9 @@ public class CorreioCalculoInternacionalStep {
     }
 
     @Dado("^que informo o dado do Objeto Nao Documento$")
-    public void que_informo_o_dado_do_Objeto_Nao_Documento() throws InterruptedException {
-        CommonsBasePage.esperar(10);
-        DadosDoObjetoPage.getTipoDocumentoObjeto();
+    public void que_informo_o_dado_do_Objeto_Nao_Documento()  {
+        dadosDoObjetoPage.esperar(10);
+        dadosDoObjetoPage.getTipoDocumentoObjeto();
 
     }
 
@@ -87,21 +86,21 @@ public class CorreioCalculoInternacionalStep {
     }
 
     @Entao("^o sistema deve validar a falta do Peso$")
-    public void o_sistema_deve_validar_a_falta_do_Peso() throws InterruptedException {
+    public void o_sistema_deve_validar_a_falta_do_Peso()  {
         dadosDoObjetoPage.btnCalcular();
-        CommonsBasePage.esperar(100);
+        resultadoDoCalculoPage.esperar(100);
         Assert.assertEquals("Valor do peso inválido", dadosDoObjetoPage.mensagemPesoInvalido());
     }
 
     @Dado("^que informo um Estado Origem valido$")
     public void que_informo_um_Estado_Origem_valido() {
-        origemDestinoCorreioPage.getEstadoOrigem("São Paulo");
+        origemDestinoCorreioPage.getEstadoOrigem("Sao Paulo");
 
     }
 
     @Dado("^que informo um Cidade Origem valido$")
     public void que_informo_um_Cidade_Origem_valido() {
-        origemDestinoCorreioPage.getCidadeOrigem("São Carlos");
+        origemDestinoCorreioPage.getCidadeOrigem("Sao Carlos");
         origemDestinoCorreioPage.btnProximoPasso();
     }
 
@@ -112,19 +111,19 @@ public class CorreioCalculoInternacionalStep {
 
     @Dado("^que informo um Pais Destinatario invalido$")
     public void que_informo_um_Pais_Destinatario_invalido() throws Throwable {
-        OrigemDestinoCorreioPage.getPaisDestinatarioInvalido("XXXXXX");
+        origemDestinoCorreioPage.getPaisDestinatarioInvalido("XXXXXX");
     }
 
     @Entao("^o sistema deve realizar a verificacao e apresentar mensagem de erro$")
     public void o_sistema_deve_realizar_a_verificacao_e_apresentar_mensagem_de_erro() {
-        OrigemDestinoCorreioPage.popupVazioSelectPaisDestinatario();
+        origemDestinoCorreioPage.popupVazioSelectPaisDestinatario();
     }
 
     @Dado("^que informo Dado de Destinatario invalido$")
     public void que_informo_Dado_de_Destinatario_invalido() {
-        OrigemDestinoCorreioPage.writePaisInvalido("YYYYYYY");
-        OrigemDestinoCorreioPage.writeCidadeDestinatarioInvalido("ZZZZZZ");
-        OrigemDestinoCorreioPage.btnProximoPasso();
+        origemDestinoCorreioPage.writePaisInvalido("YYYYYYY");
+        origemDestinoCorreioPage.writeCidadeDestinatarioInvalido("ZZZZZZ");
+        origemDestinoCorreioPage.btnProximoPasso();
     }
 
     @Entao("^o sistema deve realizar a verificacao e apresentar mensagem de erro informando sobre os dados invalidos$")
